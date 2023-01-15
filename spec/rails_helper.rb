@@ -71,7 +71,7 @@ end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-  # config.allow_http_connections_when_no_cassette = true
+  config.allow_http_connections_when_no_cassette = true
   config.hook_into :webmock
   config.filter_sensitive_data('<apiKey>') { ENV['places_api_key'] }
   config.filter_sensitive_data('<X-Api-Key>') { ENV['api-ninja-key'] }
