@@ -1,19 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe RecipeFacade, :vcr do
-  xit "returns recipes from random country" do
+RSpec.describe RecipeFacade, vcr: {record: :new_episodes} do
+  it "returns recipes from random country" do
     recipes = RecipeFacade.recipes_from_random_country
 
     expect(recipes).to be_an Array
     recipes.each do |recipe|
-      expect(recipe[:id]).to be_nil
-      expect(recipe[:type]).to be_nil
-      expect(recipe[:attributes]).to be_a Hash
-      expect(recipe[:attributes].keys).to eq([:title, :url, :country, :image])
-      expect(recipe[:attributes][:title]).to be_a String
-      expect(recipe[:attributes][:url]).to be_a String
-      expect(recipe[:attributes][:country]).to be_a String
-      expect(recipe[:attributes][:image]).to be_a String
+      expect(recipe).to be_a Recipe
     end
   end
 
