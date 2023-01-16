@@ -5,7 +5,7 @@ RSpec.describe 'Get recipe', vcr: {record: :new_episodes} do
     country = ("thailand")
 
     get "/api/v1/recipes?country=#{country}"
-
+    
     expect(response).to be_successful
   end
 
@@ -21,7 +21,7 @@ RSpec.describe 'Get recipe', vcr: {record: :new_episodes} do
     country = ("")
 
     get "/api/v1/recipes?country=#{country}"
-  
+
     expect(response).to be_successful
   end
 end
