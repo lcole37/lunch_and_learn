@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.unsplash.com/search/photos?client_id=3BxDm-Bwv9_xkNJITUv2sF6HJjEZPa1a9oRASpzsmCo&orientation=squarish&page=1&query=notrealcountry
+    uri: https://api.unsplash.com/search/photos?client_id=<unsplash_key>&orientation=squarish&page=1&query=notrealcountry
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.2
+      - Faraday v2.7.3
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -63,21 +63,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Jan 2023 05:14:51 GMT
+      - Tue, 17 Jan 2023 20:07:31 GMT
       Age:
-      - '18033'
+      - '71594'
       X-Served-By:
-      - cache-iad-kiad7000129-IAD, cache-den8268-DEN
+      - cache-iad-kiad7000129-IAD, cache-den8229-DEN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1673932491.194443,VS0,VE6
+      - S1673986052.696644,VS0,VE1
       Vary:
       - Accept-Encoding, Origin,Authorization,Accept-Language,client-geo-region,Accept
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 17 Jan 2023 05:14:51 GMT
+  recorded_at: Tue, 17 Jan 2023 20:07:31 GMT
 recorded_with: VCR 6.1.0
