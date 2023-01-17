@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe YoutubeFacade do
+describe YoutubeFacade, :vcr do
   describe '.create_video' do
     it "creates a video object" do
       video = YoutubeFacade.create_video("Laos")

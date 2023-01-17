@@ -68,6 +68,10 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
+RSpec.configure do |config|
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
@@ -78,7 +82,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('<app_id>') { ENV['edamam_app_id'] }
   config.filter_sensitive_data('<app_key>') { ENV['edamam_api_key'] }
   config.filter_sensitive_data('<key>') { ENV['youtube_api_key'] }
-  # config.filter_sensitive_data('<unsplash_key>') { ENV['unsplash_api_key'] }
+  config.filter_sensitive_data('<unsplash_key>') { ENV['unsplash_api_key'] } #regenerate after submit, one casette has this key
   config.configure_rspec_metadata!
   config.default_cassette_options = { re_record_interval: 7.days }
 end

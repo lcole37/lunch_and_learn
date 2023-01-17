@@ -7,7 +7,6 @@ class YoutubeService
     response = conn.get('/youtube/v3/search?part=snippet&channelId=UCluQ5yInbeAkkeCndNnUhpw&maxResults=1') do |f|
       f.params['q'] = country
     end
-    # require "pry"; binding.pry
     parsed = JSON.parse(response.body, symbolize_names: true)[:items][0]
   end
 end
