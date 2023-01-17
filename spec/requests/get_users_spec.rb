@@ -41,6 +41,10 @@ describe 'Users Create' , vcr: { record: :new_episodes } do
       # xit "sad path tests" do
       #
       # end
+
+      # xit "edge case/errors" do
+      #
+      # end
     end
   end
 end
