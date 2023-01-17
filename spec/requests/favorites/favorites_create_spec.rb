@@ -41,4 +41,16 @@ describe "Favorites Create", vcr: { record: :new_episodes } do
 
     expect(response).to have_http_status(422)
   end
+  it "Sad, returns error if missing params" do
+    sad_data = {
+        api_key: "543210",
+        country: "Poland",
+        recipe_title: "Poland Recipe"
+    }
+
+    post "/api/v1/favorites", headers: headers, params: JSON.generate(sad_data)
+
+    expect(response).to have_http_status(422)
+  end
+
 end
