@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
       user.save
       render json: UserSerializer.new(user), status: 201
     else
-      render json: user.errors.full_messages.to_sentance, status: 422
+      render json: user.errors.full_messages.to_sentence, status: 422
     end
   end
 

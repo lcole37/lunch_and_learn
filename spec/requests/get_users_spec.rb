@@ -12,7 +12,7 @@ describe 'Users Create' , vcr: { record: :new_episodes } do
                       "name": "Athena Dao",
                         }
         @sad_user_not_unique = {
-                            "name": "Athena Dao",
+                            "name": "Not Athena Dao",
                             "email": "athenadao@bestgirlever.com"
                           }
       end
@@ -38,13 +38,21 @@ describe 'Users Create' , vcr: { record: :new_episodes } do
         expect(created_user.name).to eq(@user[:name])
         expect(created_user.email).to eq(@user[:email])
       end
-      # xit "sad path tests" do
-      #
-      # end
 
-      # xit "edge case/errors" do
-      #
-      # end
+      it "sad path, no creation without email" do
+        post api_v1_users_path, headers: headers, params: JSON.generate(@sad_user_no_email)
+        expect(response).to have_http_status(422)
+      end
+
+      it "sad path, no creation with used email" do
+        post api_v1_users_path, headers: headers, params: JSON.generate(@user)
+
+        expect(response).to have_http_status(201)
+
+        post api_v1_users_path, headers: headers, params: JSON.generate(@sad_user_not_unique)
+
+        expect(response).to have_http_status(422)
+      end
     end
   end
 end
