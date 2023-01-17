@@ -1,9 +1,12 @@
 class Api::V1::FavoritesController < ApplicationController
   def create
     user = User.find_by(api_key: params[:api_key])
-    favorite = user.favorites.create!(favorite_params)
-    # require "pry"; binding.pry
-    render json: { success: 'Favorite added successfully' }, status: 422
+    if user.nil?
+      render json: {error: 'User not found'}, status: 422
+    else
+      favorite = user.favorites.create!(favorite_params)
+      render json: { success: 'Favorite added successfully' }, status: 422
+    end
   end
 
   private
