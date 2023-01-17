@@ -48,7 +48,7 @@ describe 'Users Create', vcr: { record: :new_episodes } do
         post api_v1_users_path, headers: headers, params: JSON.generate(@user)
 
         expect(response).to have_http_status(201)
-        expect(User.count).to eq(1) #remember to change if i seed a user
+        expect(User.count).to eq(1)
 
         post api_v1_users_path, headers: headers, params: JSON.generate(@sad_user_not_unique)
 
