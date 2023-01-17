@@ -78,7 +78,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('<app_id>') { ENV['edamam_app_id'] }
   config.filter_sensitive_data('<app_key>') { ENV['edamam_api_key'] }
   config.filter_sensitive_data('<key>') { ENV['youtube_api_key'] }
-  # config.filter_sensitive_data('<unsplash_key>') { ENV['unsplash_api_key'] }
+  config.filter_sensitive_data('<unsplash_key>') { ENV['unsplash_api_key'] } #regenerate after submit, one casette has this key
   config.configure_rspec_metadata!
   config.default_cassette_options = { re_record_interval: 7.days }
 end

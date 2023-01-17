@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe YoutubeService, vcr: {record: :new_episodes} do
+RSpec.describe YoutubeService, :vcr do
   it "returns a video about a country" do
     country = "Laos"
 
