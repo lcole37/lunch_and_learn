@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Users Create' , vcr: { record: :new_episodes } do
+describe 'Users Create', vcr: { record: :new_episodes } do
   describe 'When I send a post request to /users' do
     describe 'and I send in attributes in body' do
       before :each do
