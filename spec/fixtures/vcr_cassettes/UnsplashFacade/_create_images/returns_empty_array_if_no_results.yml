@@ -63,21 +63,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Jan 2023 00:14:17 GMT
+      - Tue, 17 Jan 2023 04:34:56 GMT
       Age:
-      - '0'
+      - '15638'
       X-Served-By:
-      - cache-iad-kiad7000129-IAD, cache-den8224-DEN
+      - cache-iad-kiad7000129-IAD, cache-den8252-DEN
       X-Cache:
-      - MISS, MISS
+      - MISS, HIT
       X-Cache-Hits:
-      - 0, 0
+      - 0, 1
       X-Timer:
-      - S1673914458.666871,VS0,VE125
+      - S1673930096.088704,VS0,VE1
       Vary:
       - Accept-Encoding, Origin,Authorization,Accept-Language,client-geo-region,Accept
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 17 Jan 2023 00:14:17 GMT
+  recorded_at: Tue, 17 Jan 2023 04:34:56 GMT
 recorded_with: VCR 6.1.0
