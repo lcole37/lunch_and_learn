@@ -21,7 +21,7 @@ describe "Favorites Create", vcr: { record: :new_episodes } do
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response).to have_http_status(422)
+    expect(response).to have_http_status(201)
     expect(parsed.keys).to eq([:success])
     expect(parsed[:success]).to eq("Favorite added successfully")
     expect(@happy.favorites.last.country).to eq("Poland")
