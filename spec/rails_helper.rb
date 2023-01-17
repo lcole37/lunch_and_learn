@@ -68,6 +68,10 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
+RSpec.configure do |config|
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
