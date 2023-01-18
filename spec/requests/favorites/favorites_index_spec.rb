@@ -45,6 +45,5 @@ describe "Favorites Index" do
 
       expect(response).to have_http_status(422)
     end
-
   end
 end
