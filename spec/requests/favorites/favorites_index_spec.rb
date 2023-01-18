@@ -29,11 +29,21 @@ describe "Favorites Index" do
     end
 
     it "returns blank array for favorites if user has none" do
+      get '/api/v1/favorites', params: { api_key: @user2.api_key }
 
+      expect(response).to have_http_status(:success)
+
+      user2_favorites = JSON.parse(response.body, symbolize_names: true)
+
+      expect(user2_favorites).to be_a Hash
+      expect(user2_favorites).to have_key(:data)
+      expect(user2_favorites[:data].empty?).to eq(true)
     end
 
-    it "does not return with missing parameters" do
+    it "returns bad request status if missing parameters" do
+      get '/api/v1/favorites', params: {api_key: "invalid" }
 
+      expect(response).to have_http_status(422)
     end
 
   end

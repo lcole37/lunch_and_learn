@@ -10,8 +10,12 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def index
-    user = User.find_by(api_key: params[:api_key])
-    render json: FavoriteSerializer.new(user.favorites)
+    if !User.find_by(api_key: params[:api_key]) || !params[:api_key]
+      render json: { error: "Missing or invalid information" }, status: 422
+    else
+      user = User.find_by(api_key: params[:api_key])
+      render json: FavoriteSerializer.new(user.favorites)
+    end
   end
 
   private
