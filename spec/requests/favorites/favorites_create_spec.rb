@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe "Favorites Create", vcr: { record: :new_episodes } do
+describe "Favorites Create", :vcr do
   before :each do
     @happy = User.create!(name: "Happy", email: "example@happyemail.com", api_key: "012345")
   end
   let(:headers) { { CONTENT_TYPE: 'application/json' } }
 
-  it "Happy, can successfully post favorite" do
+  it "Happy path, can successfully post favorite" do
     happy_data = {
         api_key: "012345",
         country: "Poland",
@@ -29,7 +29,7 @@ describe "Favorites Create", vcr: { record: :new_episodes } do
     expect(@happy.favorites.last.recipe_link).to eq("https//www.allrecipes.com")
   end
 
-  it "Sad, returns error if api key not found" do
+  it "Sad path, returns error if api key not found" do
     sad_data = {
         api_key: "543210",
         country: "Poland",
@@ -41,7 +41,7 @@ describe "Favorites Create", vcr: { record: :new_episodes } do
 
     expect(response).to have_http_status(422)
   end
-  it "Sad, returns error if missing params" do
+  it "Sad path, returns error if missing params" do
     sad_data = {
         api_key: "543210",
         country: "Poland",
